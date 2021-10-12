@@ -1,0 +1,76 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:3563560434961358549",
+      "lastPropertyId": "4:3119671340870464044",
+      "name": "Address",
+      "properties": [
+        {
+          "id": "1:56873495277224829",
+          "name": "idAddress",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:8748257174137005023",
+          "name": "street",
+          "type": 9
+        },
+        {
+          "id": "3:6413472077094014176",
+          "name": "district",
+          "type": 9
+        },
+        {
+          "id": "4:3119671340870464044",
+          "name": "city",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:8438038585892174268",
+      "lastPropertyId": "4:3478176994265223919",
+      "name": "Note",
+      "properties": [
+        {
+          "id": "1:605178428652928819",
+          "name": "idNote",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:4911027794709653178",
+          "name": "title",
+          "type": 9
+        },
+        {
+          "id": "3:8650664411430688620",
+          "name": "description",
+          "type": 9
+        },
+        {
+          "id": "4:3478176994265223919",
+          "name": "timeStamp",
+          "type": 9
+        }
+      ],
+      "relations": []
+    }
+  ],
+  "lastEntityId": "2:8438038585892174268",
+  "lastIndexId": "0:0",
+  "lastRelationId": "0:0",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
