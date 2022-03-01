@@ -17,18 +17,18 @@ class AppAsset {
 
 class AppImage {
   static Widget network({
-    @required String url,
+    required String url,
     BoxFit fit = BoxFit.cover,
-    double width,
-    double height,
-    Color color,
-    String placeholder,
+    double? width,
+    double? height,
+    Color? color,
+    String? placeholder,
   }) {
     return Container(
       color: color ?? Colors.transparent,
       width: width,
       height: height,
-      child: (url != null && url != '')
+      child: (url != '')
           ? Image.network(
               url,
               fit: fit,
@@ -38,12 +38,12 @@ class AppImage {
   }
 
   static Widget asset(
-      {@required String assetPath,
-      Color color,
+      {required String assetPath,
+      Color? color,
       BoxFit fit = BoxFit.cover,
-      double width,
-      double height}) {
-    final imagePath = assetPath ?? '';
+      double? width,
+      double? height}) {
+    final imagePath = assetPath;
     final isSVG = imagePath.endsWith('.svg');
 
     return Container(

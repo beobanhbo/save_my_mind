@@ -6,20 +6,20 @@ import 'package:savemymind/common/app_utils.dart';
 import 'package:savemymind/config/app_constants.dart';
 
 class CustomSearchWidget extends StatefulWidget {
-  final String hintTitle, leftIconPath;
+  final String? hintTitle, leftIconPath;
   final Function(void) onTap;
-  final TextInputType textInputType;
+  final TextInputType? textInputType;
   final bool enable;
-  final TextAlign textAlign;
+  final TextAlign? textAlign;
   final TextEditingController controller;
-  final Widget prefixIcon;
+  final Widget? prefixIcon;
   const CustomSearchWidget({
-    Key key,
+    Key? key,
     this.hintTitle,
     this.leftIconPath,
-    this.onTap,
+    required this.onTap,
     this.textInputType,
-    this.controller,
+    required this.controller,
     this.prefixIcon,
     this.enable = true,
     this.textAlign,
@@ -30,7 +30,7 @@ class CustomSearchWidget extends StatefulWidget {
 }
 
 class _CustomSearchWidgetState extends State<CustomSearchWidget> {
-  AppCubit appCubit;
+  late AppCubit appCubit;
   GlobalKey<FormState> _formState = GlobalKey();
   @override
   void initState() {

@@ -7,11 +7,11 @@ import 'package:savemymind/common/app_utils.dart';
 
 class CustomImage extends StatefulWidget {
   final String imagePath;
-  final XFile storedImage;
-  final double width, height;
+  final XFile? storedImage;
+  final double? width, height;
   const CustomImage({
-    Key key,
-    this.imagePath,
+    Key? key,
+    required this.imagePath,
     this.storedImage,
     this.width,
     this.height,
@@ -25,7 +25,7 @@ class _CustomImageState extends State<CustomImage> {
   Widget build(BuildContext context) {
     return AppUtils.isURL(widget.imagePath)
         ? CachedNetworkImage(
-            imageUrl: widget.imagePath?.trim(),
+            imageUrl: widget.imagePath.trim(),
             errorWidget: (context, url, error) =>
                 AppImage.asset(assetPath: AppAsset.icProfile),
             placeholder: (context, url) => const CircularProgressIndicator(),

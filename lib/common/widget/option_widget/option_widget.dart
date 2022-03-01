@@ -7,27 +7,25 @@ import 'package:savemymind/models/note.dart';
 
 class OptionWidget extends StatefulWidget {
   final OptionType optionType;
-  final String content;
+  final String? content;
 
-  const OptionWidget({Key key, this.optionType, this.content})
+  const OptionWidget({Key? key, required this.optionType, this.content})
       : super(key: key);
   @override
   _OptionWidgetState createState() => _OptionWidgetState();
 }
 
 class _OptionWidgetState extends State<OptionWidget> {
-  AppCubit appCubit;
-  AppLocalization appLocalization;
+  late AppCubit appCubit;
+  late AppLocalization appLocalization;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     appCubit = AppUtils.getAppCubit(context);
   }
 
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
     super.didChangeDependencies();
     appLocalization = AppUtils.getAppLocale(context);
   }

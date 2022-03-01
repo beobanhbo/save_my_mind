@@ -10,16 +10,17 @@ import 'package:savemymind/models/note.dart';
 
 class NoteItem extends StatefulWidget {
   final Note note;
-  final Function(int) onTapItem;
+  final Function(int)? onTapItem;
 
-  const NoteItem({Key key, this.note, this.onTapItem}) : super(key: key);
+  const NoteItem({Key? key, required this.note, this.onTapItem})
+      : super(key: key);
   @override
   _NoteItemState createState() => _NoteItemState();
 }
 
 class _NoteItemState extends State<NoteItem> {
-  AppCubit appCubit;
-  AppLocalization appLocalization;
+  late AppCubit appCubit;
+  late AppLocalization appLocalization;
   @override
   void initState() {
     super.initState();
@@ -36,7 +37,7 @@ class _NoteItemState extends State<NoteItem> {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () => widget.onTapItem,
-        child: widget.note?.noteType == NoteType.reminder
+        child: widget.note.noteType == NoteType.reminder
             ? _buildReminderItem()
             : _buildNormalItem());
   }
@@ -87,7 +88,7 @@ class _NoteItemState extends State<NoteItem> {
         children: [
           Expanded(
             child: Text(
-              widget.note?.title ?? appLocalization.note(),
+              widget.note.title,
               style: appCubit.appStyle.noteTitleStyle(),
               overflow: TextOverflow.ellipsis,
             ),
@@ -116,7 +117,7 @@ class _NoteItemState extends State<NoteItem> {
                   children: [
                     Expanded(
                       child: Text(
-                        widget.note?.title ?? "",
+                        widget.note.title,
                         style: appCubit.appStyle.noteTitleStyle(),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
@@ -153,9 +154,5 @@ class _NoteItemState extends State<NoteItem> {
         ],
       ),
     );
-  }
-
-  Widget _buildOptionWidget() {
-    return OptionWidget();
   }
 }

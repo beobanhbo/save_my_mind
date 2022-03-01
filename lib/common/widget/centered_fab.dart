@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:savemymind/app/cubit/app_cubit.dart';
 import 'package:savemymind/common/app_assets.dart';
@@ -7,15 +6,22 @@ import 'package:savemymind/common/app_utils.dart';
 class FABBottomBarItem {
   final String activeIcon, inActiveIcon, title;
 
-  FABBottomBarItem({this.activeIcon, this.inActiveIcon, this.title});
+  FABBottomBarItem(
+      {required this.activeIcon,
+      required this.inActiveIcon,
+      required this.title});
 }
 
 class FABBottomBar extends StatefulWidget {
   final List<FABBottomBarItem> listWidget;
   final ValueChanged<int> onTapItem;
-  final double itemHeight;
+  final double? itemHeight;
 
-  FABBottomBar({Key key, this.listWidget, this.onTapItem, this.itemHeight})
+  FABBottomBar(
+      {Key? key,
+      required this.listWidget,
+      required this.onTapItem,
+      this.itemHeight})
       : super(key: key);
   @override
   _FABBottomBarState createState() => _FABBottomBarState();
@@ -23,7 +29,7 @@ class FABBottomBar extends StatefulWidget {
 
 class _FABBottomBarState extends State<FABBottomBar> {
   int selectedIndex = 0;
-  AppCubit appCubit;
+  late AppCubit appCubit;
   @override
   void initState() {
     super.initState();
@@ -57,7 +63,9 @@ class _FABBottomBarState extends State<FABBottomBar> {
   }
 
   Widget _buildItemAppBar(
-      {FABBottomBarItem item, ValueChanged<int> onTapItem, int index}) {
+      {required FABBottomBarItem item,
+      required ValueChanged<int> onTapItem,
+      required int index}) {
     TextStyle textStyle = selectedIndex == index
         ? appCubit.appStyle.selectedAppBarItemLabelStyle()
         : appCubit.appStyle.unSelectedAppBarItemLabelStyle();
